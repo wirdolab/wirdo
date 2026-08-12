@@ -73,13 +73,14 @@ hr.div { border:none; height:1px; background:rgba(255,255,255,.62); position:rel
 }
 #lang-toggle .lt-pill.active { color:#fff; }
 #lang-toggle .lt-slider {
-  position:absolute; top:3px; bottom:3px; width:calc(50% - 3px);
+  position:absolute; top:3px; bottom:3px; width:calc(33.33% - 3px);
   background:var(--blue); border-radius:100px;
   transition:left .28s cubic-bezier(.16,1,.3,1);
   box-shadow:0 2px 10px rgba(15,109,243,.45);
 }
 #lang-toggle[data-lang="es"] .lt-slider { left:3px; }
-#lang-toggle[data-lang="en"] .lt-slider { left:calc(50%); }
+#lang-toggle[data-lang="en"] .lt-slider { left:calc(33.33%); }
+#lang-toggle[data-lang="it"] .lt-slider { left:calc(66.66%); }
 
 /* ── LANG TOGGLE ──────────────────────────── */
 #lang-btn {
@@ -397,6 +398,7 @@ footer p { font-size:.7rem;color:var(--gray); }
     <div class="lt-slider"></div>
     <span class="lt-pill active" id="lt-es">ES</span>
     <span class="lt-pill" id="lt-en">EN</span>
+    <span class="lt-pill" id="lt-it">IT</span>
   </div>
 </div>
 
@@ -415,6 +417,7 @@ footer p { font-size:.7rem;color:var(--gray); }
     <div id="lang-btn">
       <span class="active" onclick="setLang('es')">ES</span>
       <span onclick="setLang('en')">EN</span>
+      <span onclick="setLang('it')">IT</span>
     </div>
     <a href="https://cal.com/fernando-preciado-silva-xrcisa/15min" target="_blank" class="ncta" data-i18n="nav.cta">Hablemos</a>
   </div>
@@ -614,7 +617,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       <!-- ROW 1: wirdö(wide=2) + American Stages(reel=1) = 3 -->
       <div class="pc pc-wide pc-wirdo rv d1">
         <div class="pv pv-land" style="background:#000">
-          <video src="media/wirdo/titanic_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/wirdo/titanic_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -626,7 +629,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       </div>
       <div class="pc g rv d2">
         <div class="pv pv-reel" style="background:#000">
-          <video src="media/american-stages/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/american-stages/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -640,7 +643,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       <!-- ROW 2: ferdossi(reel=1) + Tahona(wide=2) = 3 -->
       <div class="pc g rv d1">
         <div class="pv pv-reel" style="background:#111">
-          <img src="media/ferdossi/1.png" style="width:100%;height:100%;object-fit:cover;object-position:top">
+          <img src="media-github/ferdossi/1.png" style="width:100%;height:100%;object-fit:cover;object-position:top">
         </div>
         <div class="pb2">
           <div class="pcat" data-i18n="port.fe.cat">AI Creative · Arte &amp; Literatura</div>
@@ -651,7 +654,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       </div>
       <div class="pc pc-wide g rv d2">
         <div class="pv pv-land" style="background:#000">
-          <img src="media/tahona-emperadores/img1.png" style="width:100%;height:100%;object-fit:cover">
+          <img src="media-github/tahona-emperadores/img1.png" style="width:100%;height:100%;object-fit:cover">
         </div>
         <div class="pb2">
           <div class="pcat" data-i18n="port.te.cat">Branding · Tequilera Artesanal</div>
@@ -664,7 +667,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       <!-- ROW 3: TelevisaUnivision(wide=2) + She by Shereé(reel=1) = 3 -->
       <div class="pc pc-wide g rv d1">
         <div class="pv pv-land" style="background:#000">
-          <video src="media/televisaunivision/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/televisaunivision/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -676,7 +679,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       </div>
       <div class="pc g rv d2">
         <div class="pv pv-reel" style="background:#111">
-          <video src="media/she-by-sheree/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/she-by-sheree/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -690,7 +693,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       <!-- ROW 4: QIN(reel=1) + Alex Serrano(wide=2) = 3 -->
       <div class="pc g rv d1">
         <div class="pv pv-reel" style="background:#000">
-          <video src="media/QIN/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/QIN/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -702,7 +705,7 @@ footer p { font-size:.7rem;color:var(--gray); }
       </div>
       <div class="pc pc-wide g rv d2">
         <div class="pv pv-land" style="background:#000">
-          <video src="media/alex-serrano/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
+          <video src="media-github/alex-serrano/reel1_web.mp4" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover"></video>
           <div class="pplay"><svg viewBox="0 0 24 24"><use href="#i-play"/></svg></div>
         </div>
         <div class="pb2">
@@ -727,42 +730,42 @@ footer p { font-size:.7rem;color:var(--gray); }
   <div class="carousel-outer">
     <div class="carousel-track" id="ctrack">
       <!-- Set 1 -->
-      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
-      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
-      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
-      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
-      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
-      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
+      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media-github/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
+      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media-github/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
+      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media-github/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
+      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media-github/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
+      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media-github/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
+      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media-github/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Calvary Episcopal</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Christ's Church</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Mula Blanca</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Amabar</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">QIN Oriental Food</span></a>
       <!-- Set 2 (duplicate for seamless loop) -->
-      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
-      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
-      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
-      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
-      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
-      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
+      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media-github/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
+      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media-github/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
+      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media-github/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
+      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media-github/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
+      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media-github/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
+      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media-github/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Calvary Episcopal</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Christ's Church</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Mula Blanca</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Amabar</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">QIN Oriental Food</span></a>
       <!-- Set 2 — duplicate for seamless loop -->
-      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
-      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
-      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
-      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
-      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
-      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
-      <a href="#" target="_blank" class="clogo"><img src="media/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
+      <a href="https://www.instagram.com/americanstagespm/" target="_blank" class="clogo"><img src="media-github/logos/logo-americanstages.png" alt="American Stages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">American Stages</span></a>
+      <a href="https://www.instagram.com/televisa_gdl/" target="_blank" class="clogo"><img src="media-github/logos/logo-televisa.png" alt="TelevisaUnivision" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">TelevisaUnivision</span></a>
+      <a href="https://www.instagram.com/ferdossi_/" target="_blank" class="clogo"><img src="media-github/logos/logo-ferdossi.png" alt="ferdossi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">ferdossi</span></a>
+      <a href="https://www.instagram.com/tahonaemperadores/" target="_blank" class="clogo"><img src="media-github/logos/logo-tahona.png" alt="Tahona Emperadores" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Tahona Emperadores</span></a>
+      <a href="https://www.instagram.com/shereewhitfield/" target="_blank" class="clogo"><img src="media-github/logos/logo-she.png" alt="She by Shereé" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">She by Shereé</span></a>
+      <a href="https://www.instagram.com/alexserrano1/" target="_blank" class="clogo"><img src="media-github/logos/logo-alex.png" alt="Alex Serrano" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Alex Serrano</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-uupz.png" alt="uupz" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">uupz</span></a>
+      <a href="#" target="_blank" class="clogo"><img src="media-github/logos/logo-tiger.png" alt="Cliente" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="clogo-text" style="display:none">Cliente</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Calvary Episcopal</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Christ's Church</span></a>
       <a href="#" target="_blank" class="clogo"><span class="clogo-text">Mula Blanca</span></a>
@@ -1020,21 +1023,86 @@ const T = {
     'cta.label':'Let\'s connect','cta.title':'Ready for the<br>next <b>level?</b>',
     'cta.sub':'A 15-minute conversation can change the course of your business.',
     'cta.wa':'WhatsApp','cta.email':'hey@wirdolab.com',
+  },
+  it: {
+    'nav.about':'Chi siamo','nav.services':'Servizi','nav.work':'Lavori',
+    'nav.clients':'Clienti','nav.book':'Prenota','nav.contact':'Contatto','nav.cta':'Parliamo',
+    'hero.badge':'AI Marketing Lab · Messico · USA · Irlanda','hero.slogan':'IA · Evolvi le tue idee',
+    'hero.title':'IA·<b>Evolvi</b><br>le tue idee.',
+    'hero.sub':'Il laboratorio dove intelligenza artificiale e marketing si fondono per creare brand più intelligenti, veloci e memorabili.',
+    'hero.btn1':'Raccontaci cosa ti serve','hero.btn2':'Vedi servizi',
+    'chat.label':'Raccontaci cosa ti serve','chat.title':'Cosa vuoi','chat.title2':'ottenere?',
+    'chat.agent':'Assistente servizi',
+    'chat.greeting':'Ciao. Sono l'assistente di wirdö. Dimmi cosa ti serve per il tuo brand o business e ti dirò come possiamo aiutarti. Puoi anche selezionare uno dei nostri servizi.',
+    'about.label':'Chi siamo',
+    'about.title':'Siamo il lab<br><b>strano</b> che<br>ti serviva.',
+    'about.sub':'wirdö combina IA, strategia e creatività in modi che le agenzie normali non osano. Non seguiamo i manuali — li riscriviamo.',
+    'about.stat1':'Progetti realizzati','about.stat2':'Paesi presenti','about.stat3':'Potenzia la tua azienda','about.stat4':'Creatività umana',
+    'svc.label':'Servizi','svc.title':'Quattro pilastri.<br><b>Un ecosistema.</b>',
+    'svc.sub':'Ogni servizio è progettato per potenziare gli altri.',
+    'svc.marketing':'Quantum Marketing System',
+    'svc.marketing.desc':'Marketing integrato potenziato da IA, strategia creativa e automazione per far crescere un brand in modo più intelligente, non solo più rumoroso. Instagram, Facebook, TikTok, YouTube, LinkedIn, X, Google, Spotify Ads e altro — branding, paid ads, SEO/SEM, email marketing e community management.',
+    'svc.aidev':'AI Development & Automation',
+    'svc.aidev.desc':'Costruiamo l'infrastruttura intelligente di cui ha bisogno la tua azienda: dalle automazioni semplici ai sistemi agentici complessi. Sviluppiamo soluzioni IA il 50% più velocemente.',
+    'svc.aidev.partner':'In partnership con HEYAY LABS',
+    'svc.creative':'AI Creative Studio',
+    'svc.creative.desc':'Produzione audiovisiva potenziata da IA. Da post e reel a video cinematografici di livello professionale, in una frazione del tempo e del costo abituali.',
+    'svc.ugc':'Influencer & UGC Hub',
+    'svc.ugc.desc':'Connettiamo il tuo brand con creator reali. Campagne di User Generated Content che costruiscono fiducia genuina, portata organica e conversioni autentiche.',
+    'work.label':'Il nostro lavoro','work.title':'Risultati che<br><b>parlano da soli.</b>',
+    'work.sub':'Progetti reali per brand reali in tre paesi.',
+    'trusted.label':'Trusted by',
+    'hay.s1':'Agentic Systems','hay.s1.desc':'Progettazione e implementazione di sistemi agenti IA autonomi capaci di prendere decisioni ed eseguire compiti complessi in modo indipendente.',
+    'hay.s2':'WhatsApp AI Integration','hay.s2.desc':'Soluzioni IA native in WhatsApp: assistenza clienti automatizzata, vendite conversazionali e flussi di lavoro intelligenti.',
+    'hay.s3':'Custom AI Software','hay.s3.desc':'Sviluppo di applicazioni su misura con logica di business personalizzata, costruite il 50% più velocemente dell'approccio tradizionale.',
+    'process.label':'Processo','process.title':'Semplice. Veloce. <b>Efficace.</b>',
+    'p1.title':'Discovery','p1.desc':'Comprendiamo a fondo il tuo brand, obiettivi e mercato.',
+    'p2.title':'Strategia','p2.desc':'Progettiamo una roadmap con strumenti, tempi e KPI.',
+    'p3.title':'Esecuzione','p3.desc':'Produciamo e attiviamo campagne con velocità da lab.',
+    'p4.title':'Ottimizzazione','p4.desc':'Misuriamo, iteriamo e scaliamo ciò che funziona.',
+    'mf.label':'La nostra visione',
+    'mf.title':'<span>Costruiamo</span> <span>il</span> <span style="color:var(--blue)">futuro</span>',
+    'mf.body':'<strong>wirdö non è solo un'altra agenzia di marketing.</strong> Siamo un lab IA specializzato che comprende i salti quantistici della tecnologia e li applica alle sfide reali di business.<br><br>Il nostro team combina <strong>profonda competenza tecnica</strong> con visione creativa per costruire soluzioni che si sentono <strong>all'avanguardia e intuitive</strong> — dai sistemi di automazione intelligente ai contenuti cinematografici di brand.',
+    'hay.desc':'Studio di sviluppo IA specializzato nel costruire software intelligente più velocemente, con maggiore precisione e completamente adattato alle esigenze di ogni business.',
+    'port.media':'Contenuto in arrivo',
+    'port.reel':'Reel in arrivo',
+    'port.wd.cat':'AI Marketing Lab · Brand Proprio',
+    'port.wd.desc':'Contenuto cinematografico, AI creative e strategia digitale per il nostro brand — dove testiamo tutto prima di offrirlo ai clienti.',
+    'port.as.cat':'Social Media · AI Video · Real Estate',
+    'port.as.desc':'Gestione social media, video IA e marketing digitale per un'agenzia immobiliare in California.',
+    'port.fe.cat':'AI Creative · Arte &amp; Letteratura',
+    'port.fe.desc':'Identità visiva e contenuto editoriale generativo per un progetto di arte e letteratura. Fotografia, design e presenza digitale.',
+    'port.sb.cat':'Paid Ads · Moda · TV',
+    'port.sb.desc':'Brand di moda dell'attrice televisiva Shereé Whitfield. Paid ads, contenuto visivo e strategia digitale per il mercato fashion USA.',
+    'port.tv.cat':'AI Development · Media',
+    'port.tv.media':'AI Solutions',
+    'port.tv.desc':'Sviluppo e implementazione di soluzioni di intelligenza artificiale per uno dei più grandi gruppi media in lingua spagnola.',
+    'port.te.cat':'Branding · Tequila Artigianale',
+    'port.te.desc':'Identità visiva e presenza digitale per un brand di tequila artigianale del Jalisco. Fotografia di prodotto, social media e strategia di marca.',
+    'port.ax.cat':'Influencer · Content Creator',
+    'port.ax.desc':'Strategia di contenuto, identità digitale e campagne UGC per influencer e content creator con community in Messico.',
+    'port.qin.cat':'Social Media · Gastronomia',
+    'port.qin.desc':'Contenuto gastronomico e strategia social per un ristorante di cucina orientale.',
+    'book.label':'Prenota una chiamata','book.title':'15 minuti che possono<br>cambiare il tuo <b>business.</b>',
+    'book.sub':'Nessun impegno. Nessuna pressione. Solo una conversazione per capire come possiamo aiutarti.',
+    'cta.label':'Parliamo','cta.title':'Pronto per il<br>prossimo <b>livello?</b>',
+    'cta.sub':'Una conversazione di 15 minuti può cambiare il corso del tuo business.',
+    'cta.wa':'WhatsApp','cta.email':'hey@wirdolab.com',
   }
 };
 
 function toggleLang() {
   const cur = document.documentElement.getAttribute('data-lang')||'es';
-  setLang(cur==='es'?'en':'es');
+  setLang(cur==='es'?'en':cur==='en'?'it':'es');
 }
 function setLang(lang) {
   document.documentElement.setAttribute('data-lang', lang);
   // nav pill
   const btn = document.getElementById('lang-btn');
-  if(btn){ btn.querySelectorAll('span').forEach(s => s.classList.remove('active')); btn.querySelector(`span:${lang==='es'?'first':'last'}-child`).classList.add('active'); }
+  if(btn){ btn.querySelectorAll('span').forEach(s => s.classList.remove('active')); btn.querySelector(`span[onclick="setLang('${lang}')"]`).classList.add('active'); }
   // top bar slider
   const tog = document.getElementById('lang-toggle');
-  if(tog){ tog.setAttribute('data-lang',lang); document.getElementById('lt-es').classList.toggle('active',lang==='es'); document.getElementById('lt-en').classList.toggle('active',lang==='en'); }
+  if(tog){ tog.setAttribute('data-lang',lang); ['es','en','it'].forEach(l => document.getElementById('lt-'+l).classList.toggle('active',lang===l)); }
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');
     if (T[lang][k] !== undefined) el.textContent = T[lang][k];
@@ -1044,35 +1112,6 @@ function setLang(lang) {
     if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
   });
 }
-
-// ── CHAT ENGINE
-const svcs = {
-  marketing:{
-    name:'Quantum Marketing System', icon:'#i-signal',
-    kw:['marketing','redes','social','instagram','tiktok','facebook','ads','publicidad','branding','posicionamiento','seo','sem','email','community','contenido','audiencia','seguidores','engagement','marca','identidad','crecer','ventas','digital','campaña','anuncio','promocion','reels','youtube','linkedin'],
-    res:{es:'Sí, podemos ayudarte. Con el Quantum Marketing System diseñamos estrategia completa: branding, paid ads en Meta/Google/TikTok, SEO, community management y presencia en todas las plataformas.',
-         en:'Yes, we can help. With the Quantum Marketing System we design a complete strategy: branding, paid ads on Meta/Google/TikTok, SEO, community management and presence on all platforms.'}
-  },
-  aidev:{
-    name:'AI Development & Automation', icon:'#i-cpu',
-    kw:['app','aplicación','automatizar','automatización','bot','chatbot','agente','software','desarrollo','ia','ai','sistema','proceso','integración','api','programar','código','whatsapp','tecnología','plataforma','web','workflow','automatico','robot'],
-    res:{es:'Perfecto, es exactamente lo que construimos. AI Dev: apps a medida, sistemas agénticos, integraciones WhatsApp AI y automatización de procesos — 50% más rápido.',
-         en:'Perfect, that\'s exactly what we build. AI Dev: custom apps, agentic systems, WhatsApp AI integrations and process automation — 50% faster.'}
-  },
-  creative:{
-    name:'AI Creative Studio', icon:'#i-film',
-    kw:['video','contenido','imagen','foto','diseño','visual','producción','cinemat','creativo','reels','shorts','fotografía','gráfico','arte','render','animación','motion','post','audiovisual','clip'],
-    res:{es:'Sí. AI Creative Studio produce cualquier contenido audiovisual con IA: posts, reels, arte generativo, videos cinemáticos profesionales — en fracción del tiempo habitual.',
-         en:'Yes. AI Creative Studio produces any audiovisual content with AI: posts, reels, generative art, professional cinematic videos — in a fraction of the usual time.'}
-  },
-  ugc:{
-    name:'Influencer & UGC Hub', icon:'#i-users',
-    kw:['influencer','ugc','creador','colaboración','embajador','review','reseña','testimonio','viral','orgánico','creator'],
-    res:{es:'Claro. Influencer & UGC Hub conecta tu marca con creators reales para campañas de UGC y marketing de influencers que generan confianza y conversiones auténticas.',
-         en:'Absolutely. Influencer & UGC Hub connects your brand with real creators for UGC campaigns and influencer marketing that builds trust and authentic conversions.'}
-  }
-};
-
 function addMsg(text, type, extra) {
   const msgs = document.getElementById('chat-msgs');
   const div = document.createElement('div');
