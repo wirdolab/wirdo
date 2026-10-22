@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">Lanza tu Reto — wirdö</title>
+  <meta name="description" data-i18n="meta.desc" content="Cuéntanos tu reto. Te preparamos una demo gratis.">
+  <meta property="og:title" content="Lanza tu Reto — wirdö">
+  <meta property="og:description" content="Cuéntanos tu reto. Te preparamos una demo gratis.">
+  <meta property="og:url" content="https://wirdolab.com/reto">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:     #eef2fb;
+      --blue:   #0F6DF3;
+      --navy:   #1a2e4a;
+      --gray:   #6b7a92;
+      --teal:   #469083;
+      --white:  #fff;
+      --border: rgba(255,255,255,0.62);
+      --shadow: rgba(26,46,74,0.10);
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Background blobs ── */
+    .blobs {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .blob-1 { width: 600px; height: 600px; background: var(--blue); top: -200px; right: -150px; animation-delay: 0s; }
+    .blob-2 { width: 400px; height: 400px; background: var(--teal); bottom: -100px; left: -100px; animation-delay: -6s; }
+    .blob-3 { width: 300px; height: 300px; background: var(--navy); top: 40%; left: 30%; opacity: 0.08; animation-delay: -12s; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(30px, -40px) scale(1.05); }
+      66%       { transform: translate(-20px, 25px) scale(0.97); }
+    }
+
+    /* ── Top lang banner ── */
+    .lang-banner {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: center; align-items: center;
+      padding: 10px 0;
+    }
+    .lang-pill {
+      display: flex; gap: 2px;
+      background: rgba(26,46,74,0.90);
+      backdrop-filter: blur(12px);
+      border-radius: 100px;
+      padding: 4px 6px;
+    }
+    .lang-pill span {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.55);
+      padding: 4px 12px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .lang-pill span:hover { color: rgba(255,255,255,0.85); }
+    .lang-pill span.active {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 44px; left: 0; right: 0;
+      z-index: 99;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 48px;
+      background: rgba(238,242,251,0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(26,46,74,0.06);
+    }
+    .logo {
+      font-size: 22px; font-weight: 700; color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .logo span { color: var(--blue); }
+
+    .nav-back {
+      font-size: 13px; font-weight: 500; color: var(--gray);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--navy); }
+    .nav-back::before { content: '\2190'; font-size: 16px; }
+
+    /* ── Main layout ── */
+    main {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 140px 24px 80px;
+    }
+
+    /* ── Hero text ── */
+    .hero {
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 620px;
+    }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: rgba(15,109,243,0.08);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .hero-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: normal; color: var(--blue); }
+
+    .hero p {
+      font-size: 17px; font-weight: 300;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── Form card ── */
+    .form-card {
+      width: 100%; max-width: 560px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.85);
+      border-radius: 28px;
+      padding: 44px 48px;
+      box-shadow: 0 24px 64px var(--shadow), 0 4px 16px rgba(15,109,243,0.05);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px; font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 15px; font-weight: 400;
+      color: var(--navy);
+      background: rgba(238,242,251,0.7);
+      border: 1.5px solid rgba(26,46,74,0.10);
+      border-radius: 14px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      resize: none;
+      -webkit-appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(107,122,146,0.6);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue);
+      background: rgba(255,255,255,0.9);
+      box-shadow: 0 0 0 4px rgba(15,109,243,0.08);
+    }
+    .form-group textarea { min-height: 130px; line-height: 1.5; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .btn-submit {
+      width: 100%;
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 16px; font-weight: 500;
+      color: #fff;
+      background: var(--navy);
+      border: none; border-radius: 100px;
+      padding: 16px 32px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover {
+      background: #0F6DF3;
+      box-shadow: 0 8px 24px rgba(15,109,243,0.28);
+      transform: translateY(-1px);
+    }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled {
+      opacity: 0.65; cursor: not-allowed; transform: none;
+      box-shadow: none;
+    }
+    .btn-submit .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-text { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Success state ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 12px 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .success-state.show { display: block; }
+    .success-icon {
+      width: 72px; height: 72px;
+      background: rgba(15,109,243,0.10);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 32px;
+    }
+    .success-state h2 {
+      font-size: 26px; font-weight: 700; color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .success-state p {
+      font-size: 16px; color: var(--gray); line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .back-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 500; color: var(--navy);
+      text-decoration: none;
+      background: rgba(26,46,74,0.08);
+      padding: 10px 24px; border-radius: 100px;
+      transition: background 0.2s;
+    }
+    .back-home:hover { background: rgba(26,46,74,0.15); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 12px; color: rgba(107,122,146,0.7);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    /* ── Error msg ── */
+    .error-msg {
+      font-size: 13px; color: #e03b3b;
+      margin-top: 10px; text-align: center;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .form-card { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 38px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Lang banner -->
+  <div class="lang-banner">
+    <div class="lang-pill">
+      <span onclick="setLang('es')" class="active" id="btn-es">ES</span>
+      <span onclick="setLang('en')" id="btn-en">EN</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <a href="https://wirdolab.com" class="logo">wird<span>ö</span></a>
+    <a href="https://wirdolab.com" class="nav-back" data-i18n="nav.back">Volver al inicio</a>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <div class="hero">
+      <div class="hero-label" data-i18n="hero.label">Demo gratis</div>
+      <h1 data-i18n-html="hero.title">Lanza tu <em>reto.</em></h1>
+      <p data-i18n="hero.sub">Cuéntanos qué quieres lograr con tu marca o negocio. Lo analizamos y te preparamos una demo personalizada, sin costo.</p>
+    </div>
+
+    <div class="form-card">
+      <!-- Form -->
+      <form id="reto-form" novalidate>
+        <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+        <input type="hidden" name="subject" value="🚀 Nuevo reto — wirdö Demo">
+        <input type="hidden" name="from_name" value="wirdö Landing — Reto">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" data-i18n="form.name">Nombre</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="form.name.ph" placeholder="Tu nombre" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="company" data-i18n="form.company">Marca / Empresa</label>
+            <input type="text" id="company" name="company" data-i18n-placeholder="form.company.ph" placeholder="Opcional">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-i18n="form.email">Correo electrónico</label>
+          <input type="email" id="email" name="email" data-i18n-placeholder="form.email.ph" placeholder="tu@correo.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="reto" data-i18n="form.reto">Tu reto</label>
+          <textarea id="reto" name="message" data-i18n-placeholder="form.reto.ph" placeholder="¿Qué quieres lograr? Cuéntanos tu situación, objetivo o problema..." required></textarea>
+        </div>
+
+        <p class="error-msg" id="error-msg" data-i18n="form.error">Algo salió mal. Inténtalo de nuevo.</p>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <div class="spinner"></div>
+          <span class="btn-text" data-i18n="form.submit">Enviar reto →</span>
+        </button>
+      </form>
+
+      <!-- Success state -->
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✦</div>
+        <h2 data-i18n="success.title">¡Reto recibido!</h2>
+        <p data-i18n="success.msg">Lo revisamos en menos de 48 horas y te mandamos tu demo personalizada. Estén atentos.</p>
+        <a href="https://wirdolab.com" class="back-home" data-i18n="success.back">← Volver a wirdö</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footer.copy">© 2024 wirdö — </span><a href="https://wirdolab.com">wirdolab.com</a>
+  </footer>
+
+  <script>
+    const t = {
+      es: {
+        'meta.title':         'Lanza tu Reto — wirdö',
+        'meta.desc':          'Cuéntanos tu reto. Te preparamos una demo gratis.',
+        'nav.back':           'Volver al inicio',
+        'hero.label':         'Demo gratis',
+        'hero.title':         'Lanza tu <em>reto.</em>',
+        'hero.sub':           'Cuéntanos qué quieres lograr con tu marca o negocio. Lo analizamos y te preparamos una demo personalizada, sin costo.',
+        'form.name':          'Nombre',
+        'form.name.ph':       'Tu nombre',
+        'form.company':       'Marca / Empresa',
+        'form.company.ph':    'Opcional',
+        'form.email':         'Correo electrónico',
+        'form.email.ph':      'tu@correo.com',
+        'form.reto':          'Tu reto',
+        'form.reto.ph':       '¿Qué quieres lograr? Cuéntanos tu situación, objetivo o problema...',
+        'form.submit':        'Enviar reto →',
+        'form.sending':       'Enviando...',
+        'form.error':         'Algo salió mal. Inténtalo de nuevo.',
+        'success.title':      '¡Reto recibido!',
+        'success.msg':        'Lo revisamos en menos de 48 horas y te mandamos tu demo personalizada. Estén atentos.',
+        'success.back':       '← Volver a wirdö',
+        'footer.copy':        '© 2024 wirdö — ',
+      },
+      en: {
+        'meta.title':         'Launch your Challenge — wirdö',
+        'meta.desc':          "Tell us your challenge. We'll build you a free demo.",
+        'nav.back':           'Back to home',
+        'hero.label':         'Free demo',
+        'hero.title':         'Launch your <em>challenge.</em>',
+        'hero.sub':           "Tell us what you want to achieve with your brand or business. We'll analyze it and build you a personalized demo, at no cost.",
+        'form.name':          'Name',
+        'form.name.ph':       'Your name',
+        'form.company':       'Brand / Company',
+        'form.company.ph':    'Optional',
+        'form.email':         'Email',
+        'form.email.ph':      'you@email.com',
+        'form.reto':          'Your challenge',
+        'form.reto.ph':       'What do you want to achieve? Tell us your situation, goal or problem...',
+        'form.submit':        'Send challenge →',
+        'form.sending':       'Sending...',
+        'form.error':         'Something went wrong. Please try again.',
+        'success.title':      'Challenge received!',
+        'success.msg':        "We'll review it within 48 hours and send you your personalized demo. Stay tuned.",
+        'success.back':       '← Back to wirdö',
+        'footer.copy':        '© 2024 wirdö — ',
+      }
+    };
+
+    let currentLang = 'es';
+
+    function setLang(lang) {
+      if (!t[lang]) return;
+      currentLang = lang;
+      document.querySelectorAll('.lang-pill span').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[lang][key] !== undefined) el.textContent = t[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[lang][key] !== undefined) el.innerHTML = t[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[lang][key] !== undefined) el.placeholder = t[lang][key];
+      });
+      if (t[lang]['meta.title']) document.title = t[lang]['meta.title'];
+    }
+
+    const form = document.getElementById('reto-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successState = document.getElementById('success-state');
+    const errorMsg = document.getElementById('error-msg');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.classList.remove('show');
+      const nameVal  = document.getElementById('name').value.trim();
+      const emailVal = document.getElementById('email').value.trim();
+      const retoVal  = document.getElementById('reto').value.trim();
+      if (!nameVal || !emailVal || !retoVal) return;
+      submitBtn.classList.add('loading');
+      submitBtn.disabled = true;
+      try {
+        const formData = new FormData(form);
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+        const data = await res.json();
+        if (data.success) {
+          form.style.animation = 'fadeOut 0.3s ease forwards';
+          setTimeout(() => { form.style.display = 'none'; successState.classList.add('show'); }, 280);
+        } else { throw new Error(data.message || 'Error'); }
+      } catch (err) {
+        submitBtn.classList.remove('loading');
+        submitBtn.disabled = false;
+        errorMsg.textContent = t[currentLang]['form.error'];
+        errorMsg.classList.add('show');
+      }
+    });
+
+    const styleEl = document.createElement('style');
+    styleEl.textContent = '@keyframes fadeOut { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-8px)} }';
+    document.head.appendChild(styleEl);
+
+    setLang('es');
+  <\/script>
+</body>
+</html>
