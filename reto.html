@@ -36,7 +36,6 @@
       position: relative;
     }
 
-    /* ── Background blobs ── */
     .blobs {
       position: fixed; inset: 0;
       pointer-events: none;
@@ -60,7 +59,6 @@
       66%       { transform: translate(-20px, 25px) scale(0.97); }
     }
 
-    /* ── Top lang banner ── */
     .lang-banner {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -89,7 +87,6 @@
       color: #fff;
     }
 
-    /* ── Nav ── */
     nav {
       position: fixed; top: 44px; left: 0; right: 0;
       z-index: 99;
@@ -115,7 +112,6 @@
     .nav-back:hover { color: var(--navy); }
     .nav-back::before { content: '\2190'; font-size: 16px; }
 
-    /* ── Main layout ── */
     main {
       position: relative; z-index: 1;
       min-height: 100vh;
@@ -123,7 +119,6 @@
       padding: 140px 24px 80px;
     }
 
-    /* ── Hero text ── */
     .hero {
       text-align: center;
       margin-bottom: 48px;
@@ -167,7 +162,6 @@
       line-height: 1.6;
     }
 
-    /* ── Form card ── */
     .form-card {
       width: 100%; max-width: 560px;
       background: rgba(255,255,255,0.72);
@@ -178,9 +172,7 @@
       box-shadow: 0 24px 64px var(--shadow), 0 4px 16px rgba(15,109,243,0.05);
     }
 
-    .form-group {
-      margin-bottom: 20px;
-    }
+    .form-group { margin-bottom: 20px; }
     .form-group label {
       display: block;
       font-size: 13px; font-weight: 500;
@@ -189,8 +181,7 @@
       letter-spacing: 0.01em;
     }
     .form-group input,
-    .form-group textarea,
-    .form-group select {
+    .form-group textarea {
       width: 100%;
       font-family: 'Ubuntu', sans-serif;
       font-size: 15px; font-weight: 400;
@@ -205,12 +196,9 @@
       -webkit-appearance: none;
     }
     .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(107,122,146,0.6);
-    }
+    .form-group textarea::placeholder { color: rgba(107,122,146,0.6); }
     .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
+    .form-group textarea:focus {
       border-color: var(--blue);
       background: rgba(255,255,255,0.9);
       box-shadow: 0 0 0 4px rgba(15,109,243,0.08);
@@ -238,10 +226,7 @@
       transform: translateY(-1px);
     }
     .btn-submit:active { transform: translateY(0); }
-    .btn-submit:disabled {
-      opacity: 0.65; cursor: not-allowed; transform: none;
-      box-shadow: none;
-    }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; }
     .btn-submit .spinner {
       width: 18px; height: 18px;
       border: 2px solid rgba(255,255,255,0.3);
@@ -255,7 +240,6 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Success state ── */
     .success-state {
       display: none;
       text-align: center;
@@ -271,14 +255,8 @@
       margin: 0 auto 24px;
       font-size: 32px;
     }
-    .success-state h2 {
-      font-size: 26px; font-weight: 700; color: var(--navy);
-      margin-bottom: 12px;
-    }
-    .success-state p {
-      font-size: 16px; color: var(--gray); line-height: 1.6;
-      margin-bottom: 28px;
-    }
+    .success-state h2 { font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .success-state p { font-size: 16px; color: var(--gray); line-height: 1.6; margin-bottom: 28px; }
     .back-home {
       display: inline-flex; align-items: center; gap: 8px;
       font-size: 14px; font-weight: 500; color: var(--navy);
@@ -294,7 +272,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Footer ── */
     footer {
       position: relative; z-index: 1;
       text-align: center;
@@ -303,7 +280,6 @@
     }
     footer a { color: var(--blue); text-decoration: none; }
 
-    /* ── Error msg ── */
     .error-msg {
       font-size: 13px; color: #e03b3b;
       margin-top: 10px; text-align: center;
@@ -311,7 +287,6 @@
     }
     .error-msg.show { display: block; }
 
-    /* ── Mobile ── */
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
       .form-card { padding: 32px 24px; }
@@ -322,14 +297,12 @@
 </head>
 <body>
 
-  <!-- Background blobs -->
   <div class="blobs" aria-hidden="true">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
   </div>
 
-  <!-- Lang banner -->
   <div class="lang-banner">
     <div class="lang-pill">
       <span onclick="setLang('es')" class="active" id="btn-es">ES</span>
@@ -337,13 +310,11 @@
     </div>
   </div>
 
-  <!-- Nav -->
   <nav>
     <a href="https://wirdolab.com" class="logo">wird<span>ö</span></a>
     <a href="https://wirdolab.com" class="nav-back" data-i18n="nav.back">Volver al inicio</a>
   </nav>
 
-  <!-- Main -->
   <main>
     <div class="hero">
       <div class="hero-label" data-i18n="hero.label">Demo gratis</div>
@@ -352,9 +323,8 @@
     </div>
 
     <div class="form-card">
-      <!-- Form -->
       <form id="reto-form" novalidate>
-        <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY">
+        <input type="hidden" name="access_key" value="8093b90a-43f5-4745-8acf-512d4020690d">
         <input type="hidden" name="subject" value="🚀 Nuevo reto — wirdö Demo">
         <input type="hidden" name="from_name" value="wirdö Landing — Reto">
         <input type="checkbox" name="botcheck" style="display:none;">
@@ -388,7 +358,6 @@
         </button>
       </form>
 
-      <!-- Success state -->
       <div class="success-state" id="success-state">
         <div class="success-icon">✦</div>
         <h2 data-i18n="success.title">¡Reto recibido!</h2>
@@ -405,50 +374,46 @@
   <script>
     const t = {
       es: {
-        'meta.title':         'Lanza tu Reto — wirdö',
-        'meta.desc':          'Cuéntanos tu reto. Te preparamos una demo gratis.',
-        'nav.back':           'Volver al inicio',
-        'hero.label':         'Demo gratis',
-        'hero.title':         'Lanza tu <em>reto.</em>',
-        'hero.sub':           'Cuéntanos qué quieres lograr con tu marca o negocio. Lo analizamos y te preparamos una demo personalizada, sin costo.',
-        'form.name':          'Nombre',
-        'form.name.ph':       'Tu nombre',
-        'form.company':       'Marca / Empresa',
-        'form.company.ph':    'Opcional',
-        'form.email':         'Correo electrónico',
-        'form.email.ph':      'tu@correo.com',
-        'form.reto':          'Tu reto',
-        'form.reto.ph':       '¿Qué quieres lograr? Cuéntanos tu situación, objetivo o problema...',
-        'form.submit':        'Enviar reto →',
-        'form.sending':       'Enviando...',
-        'form.error':         'Algo salió mal. Inténtalo de nuevo.',
-        'success.title':      '¡Reto recibido!',
-        'success.msg':        'Lo revisamos en menos de 48 horas y te mandamos tu demo personalizada. Estén atentos.',
-        'success.back':       '← Volver a wirdö',
-        'footer.copy':        '© 2024 wirdö — ',
+        'meta.title':      'Lanza tu Reto — wirdö',
+        'nav.back':        'Volver al inicio',
+        'hero.label':      'Demo gratis',
+        'hero.title':      'Lanza tu <em>reto.</em>',
+        'hero.sub':        'Cuéntanos qué quieres lograr con tu marca o negocio. Lo analizamos y te preparamos una demo personalizada, sin costo.',
+        'form.name':       'Nombre',
+        'form.name.ph':    'Tu nombre',
+        'form.company':    'Marca / Empresa',
+        'form.company.ph': 'Opcional',
+        'form.email':      'Correo electrónico',
+        'form.email.ph':   'tu@correo.com',
+        'form.reto':       'Tu reto',
+        'form.reto.ph':    '¿Qué quieres lograr? Cuéntanos tu situación, objetivo o problema...',
+        'form.submit':     'Enviar reto →',
+        'form.error':      'Algo salió mal. Inténtalo de nuevo.',
+        'success.title':   '¡Reto recibido!',
+        'success.msg':     'Lo revisamos en menos de 48 horas y te mandamos tu demo personalizada. Estén atentos.',
+        'success.back':    '← Volver a wirdö',
+        'footer.copy':     '© 2024 wirdö — ',
       },
       en: {
-        'meta.title':         'Launch your Challenge — wirdö',
-        'meta.desc':          "Tell us your challenge. We'll build you a free demo.",
-        'nav.back':           'Back to home',
-        'hero.label':         'Free demo',
-        'hero.title':         'Launch your <em>challenge.</em>',
-        'hero.sub':           "Tell us what you want to achieve with your brand or business. We'll analyze it and build you a personalized demo, at no cost.",
-        'form.name':          'Name',
-        'form.name.ph':       'Your name',
-        'form.company':       'Brand / Company',
-        'form.company.ph':    'Optional',
-        'form.email':         'Email',
-        'form.email.ph':      'you@email.com',
-        'form.reto':          'Your challenge',
-        'form.reto.ph':       'What do you want to achieve? Tell us your situation, goal or problem...',
-        'form.submit':        'Send challenge →',
-        'form.sending':       'Sending...',
-        'form.error':         'Something went wrong. Please try again.',
-        'success.title':      'Challenge received!',
-        'success.msg':        "We'll review it within 48 hours and send you your personalized demo. Stay tuned.",
-        'success.back':       '← Back to wirdö',
-        'footer.copy':        '© 2024 wirdö — ',
+        'meta.title':      'Launch your Challenge — wirdö',
+        'nav.back':        'Back to home',
+        'hero.label':      'Free demo',
+        'hero.title':      'Launch your <em>challenge.</em>',
+        'hero.sub':        "Tell us what you want to achieve with your brand or business. We'll analyze it and build you a personalized demo, at no cost.",
+        'form.name':       'Name',
+        'form.name.ph':    'Your name',
+        'form.company':    'Brand / Company',
+        'form.company.ph': 'Optional',
+        'form.email':      'Email',
+        'form.email.ph':   'you@email.com',
+        'form.reto':       'Your challenge',
+        'form.reto.ph':    'What do you want to achieve? Tell us your situation, goal or problem...',
+        'form.submit':     'Send challenge →',
+        'form.error':      'Something went wrong. Please try again.',
+        'success.title':   'Challenge received!',
+        'success.msg':     "We'll review it within 48 hours and send you your personalized demo. Stay tuned.",
+        'success.back':    '← Back to wirdö',
+        'footer.copy':     '© 2024 wirdö — ',
       }
     };
 
@@ -457,7 +422,7 @@
     function setLang(lang) {
       if (!t[lang]) return;
       currentLang = lang;
-      document.querySelectorAll('.lang-pill span').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.lang-pill span').forEach(b => b.classList.remove('active'));
       document.getElementById('btn-' + lang).classList.add('active');
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -490,8 +455,7 @@
       submitBtn.classList.add('loading');
       submitBtn.disabled = true;
       try {
-        const formData = new FormData(form);
-        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) });
         const data = await res.json();
         if (data.success) {
           form.style.animation = 'fadeOut 0.3s ease forwards';
@@ -505,9 +469,9 @@
       }
     });
 
-    const styleEl = document.createElement('style');
-    styleEl.textContent = '@keyframes fadeOut { from{opacity:1;transform:translateY(0)} to{opacity:0;transform:translateY(-8px)} }';
-    document.head.appendChild(styleEl);
+    const s = document.createElement('style');
+    s.textContent = '@keyframes fadeOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-8px)}}';
+    document.head.appendChild(s);
 
     setLang('es');
   <\/script>
